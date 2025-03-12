@@ -52,15 +52,6 @@ resource "aws_instance" "portfolio" {
   vpc_security_group_ids = [aws_security_group.portfolio-sg.id]
   key_name               = "portfolio"  # Nom de la clé SSH pour se connecter
 
-  user_data = <<-EOF
-              #!/bin/bash
-              sudo yum update -y
-              sudo yum install -y docker
-              sudo systemctl start docker
-              sudo systemctl enable docker
-              sudo usermod -aG docker ec2-user
-              sudo reboot
-              EOF
   tags = {
     "Name" = "Portfolio"
   }
