@@ -62,4 +62,7 @@ jobs:
           mkdir -p ~/.ssh  # Créer le répertoire .ssh s'il n'existe pas
           echo "Adding the EC2 host key to known_hosts"
           ssh-keyscan -H ${{ secrets.EC2_PUBLIC_IP }} >> ~/.ssh/known_hosts  # Ajouter la clé de l'hôte EC2
+          ssh -i private_key.pem ec2-user@${{ secrets.EC2_PUBLIC_IP }} "
+          sudo docker stop \$(sudo docker ps -q) && 
+          sudo docker rm \$(sudo docker ps -a -q)
           ssh -i private_key.pem ec2-user@${{ secrets.EC2_PUBLIC_IP }} "docker pull jimleroux/portfolio:${{ github.sha }} && docker run --rm -d -p 8080:80 jimleroux/portfolio:${{ github.sha }}"
