@@ -1,0 +1,27 @@
+# Ignorer les fichiers spécifiques à macOS
+.DS_Store
+
+# Fichiers Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+
+# Dossiers et fichiers générés par Docker
+*.docker
+*.log
+docker-compose.override.yml
+
+# Clés et fichiers sensibles
+*.pem
+*.key
+
+# Répertoires spécifiques à l'IDE
+.vscode/
+.idea/
+
+# Répertoires temporaires
+*.swp
+*.bak
+*.tmp
+
