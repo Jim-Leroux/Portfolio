@@ -1,0 +1,13 @@
+services:
+  web:
+    build: ./app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app/app:/usr/share/nginx/html
+    networks:
+      - portfolio_network
+
+networks:
+  portfolio_network:
+    driver: bridge
