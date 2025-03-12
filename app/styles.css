@@ -52,7 +52,8 @@ body {
 }
 
 .binary-text {
-    all:unset;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
     font-size: 12px;
     color: var(--primary-color);
     white-space: nowrap;
