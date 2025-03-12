@@ -34,10 +34,19 @@ jobs:
 
       - name: Run tests
         run: |
-          docker-compose -f docker-compose.yml up -d
-          sleep 5
-          curl -f http://localhost:8080 && echo "Portfolio is up and running!" || exit 1
-          docker-compose down
+          docker run --rm -d -p 8080:80 jimleroux/portfolio:latest
+
+      - name: Wait for container to be ready
+        run: sleep 5
+
+      - name: Test running container
+        run: |
+          for i in {1..5}; do
+            curl -f http://localhost:8080 && break || sleep 5;
+          done
+          if [ $? -ne 0 ]; then
+            docker logs $(docker ps -q) && exit 1
+          fi
 
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
