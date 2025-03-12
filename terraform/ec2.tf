@@ -53,14 +53,15 @@ resource "aws_instance" "portfolio" {
   key_name               = "portfolio"  # Nom de la clé SSH pour se connecter
 
   user_data = <<-EOF
-            #!/bin/bash
-            sudo yum update -y
-            sudo yum install -y docker
-            sudo systemctl start docker
-            sudo systemctl enable docker
-            sudo usermod -aG docker ec2-user
-            newgrp docker
+              #!/bin/bash
+              sudo yum update -y
+              sudo yum install -y docker
+              sudo systemctl start docker
+              sudo systemctl enable docker
+              sudo usermod -aG docker ec2-user
+              sudo reboot
               EOF
+
 
   tags = {
     "Name" = "Portfolio"
