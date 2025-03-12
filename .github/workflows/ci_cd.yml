@@ -55,14 +55,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Terraform Init
-        run: |
-          terraform init
-
-      - name: Terraform Apply
-        run: |
-          terraform apply -auto-approve
-
       - name: Deploy to EC2
         run: |
           # Déploie l'application Docker sur l'instance EC2 existante
