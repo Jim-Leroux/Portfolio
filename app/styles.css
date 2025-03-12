@@ -52,6 +52,7 @@ body {
 }
 
 .binary-text {
+    all:unset;
     font-size: 12px;
     color: var(--primary-color);
     white-space: nowrap;
