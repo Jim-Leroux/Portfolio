@@ -61,8 +61,6 @@ resource "aws_instance" "portfolio" {
               sudo usermod -aG docker ec2-user
               sudo reboot
               EOF
-
-
   tags = {
     "Name" = "Portfolio"
   }
