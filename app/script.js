@@ -1,93 +1,38 @@
-// Theme toggle functionality
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon = themeToggle.querySelector('.theme-icon');
+// Animation d'écriture pour le texte "Born2Code"
+document.addEventListener('DOMContentLoaded', () => {
+    // Animation de la navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseover', () => {
+            link.style.textShadow = `0 0 10px rgba(176, 176, 176, 0.79)`;
+        });
+        link.addEventListener('mouseout', () => {
+            link.style.textShadow = 'none';
+        });
+    });
 
-const currentTheme = 'dark';
-
-if (currentTheme === 'light') {
-    document.body.classList.add('light-theme');
-    themeIcon.textContent = '☀️';
-}
-
-// Toggle theme function
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-theme');
-    const isLight = document.body.classList.contains('light-theme');
-    
-    // Update icon
-    themeIcon.textContent = isLight ? '☀️' : '🌙';
-    
+    // Animation des cartes de projet
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.style.boxShadow = '0 0 20px rgba(176, 176, 176, 0.79)';
+        });
+        card.addEventListener('mouseout', () => {
+            card.style.boxShadow = 'none';
+        });
+    });
 });
 
-const phaseInfo = {
-    plan: {
-        title: "Planning Phase",
-        description: "Defining objectives, planning sprints, and organizing project tasks."
-    },
-    code: {
-        title: "Development Phase",
-        description: "Writing source code, code review, and integrating features."
-    },
-    build: {
-        title: "Build Phase",
-        description: "Compiling the code and creating build artifacts."
-    },
-    test: {
-        title: "Testing Phase",
-        description: "Running unit, integration, and performance tests."
-    },
-    release: {
-        title: "Release Phase",
-        description: "Preparing and validating versions for deployment."
-    },
-    deploy: {
-        title: "Deployment Phase",
-        description: "Production release and continuous deployment of applications."
-    },
-    operate: {
-        title: "Operation Phase",
-        description: "Maintaining and managing production systems."
-    },
-    monitor: {
-        title: "Monitoring Phase",
-        description: "Monitoring performance and collecting metrics."
-    }
-};
-
-
-let activePhase = null;
-
-document.querySelectorAll('.cycle-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const phase = this.getAttribute('data-phase');
-        
-        // Remove active class from previous item
-        if (activePhase) {
-            document.querySelector(`[data-phase="${activePhase}"]`).classList.remove('active');
+// Effet de scroll fluide pour la navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
-        
-        // Add active class to current item
-        this.classList.add('active');
-        activePhase = phase;
-        
-        // Update phase information
-        document.getElementById('phaseTitle').textContent = phaseInfo[phase].title;
-        document.getElementById('phaseDescription').textContent = phaseInfo[phase].description;
-        
-        // Add animation effect
-        this.style.animation = 'none';
-        this.offsetHeight; // Trigger reflow
-        this.style.animation = null;
-    });
-});
-
-// Add hover effect
-document.querySelectorAll('.cycle-item').forEach(item => {
-    item.addEventListener('mouseover', function() {
-        this.style.transform = 'scale(1.05)';
-    });
-    
-    item.addEventListener('mouseout', function() {
-        this.style.transform = 'scale(1)';
     });
 });
