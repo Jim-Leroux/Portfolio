@@ -3,80 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <meta name="format-detection" content="telephone=no">
+    <title>DevOps Cycle</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-container">
-        <div class="container">
-            <div class="binary-header">
-                <div class="container">
-                    <div class="binary-text-wrapper">
-                        <div class="binary-text">11011111 01110111 00101100 00100000 01100010 01101001 01100101 01101110 00100000 01101010 01101111 01110101 11000011 10101001 00100000 00100001</div>
-                        <div class="binary-text">11011111 01110111 00101100 00100000 01100010 01101001 01100101 01101110 00100000 01101010 01101111 01110101 11000011 10101001 00100000 00100001</div>
-                    </div>
-                </div>
+    <div class="theme-toggle">
+        <button id="themeToggle" class="theme-button">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </div>
+    <div class="container">
+        <h1>DevOps <span class="highlight">Projects Ideas</span></h1>
+        <p class="subtitle">with Source Code</p>
+        
+        <div class="devops-cycle">
+            <div class="cycle-item" data-phase="plan">
+                <span class="phase-text">PLAN</span>
             </div>
-
-            <div class="container">
-                <header>
-                    <nav>
-                        <a href="#projets" class="nav-link">JIM LEROUX | DEVOPS</a>
-                    </nav>
-                    <h1 class="logo">PORTFOLIO</h1>
-                </header>
-
-                <main>
-                    <section id="projets">
-                        <h2>Projets</h2>
-                        <div class="projects-grid">
-                            <article class="project-card">
-                                <img src="azure.png" alt="Projet 1">
-                                <div class="project-card-content">
-                                    <div class="project-title-container">
-                                        <h3>PIPELINE MICROSOFT AZURE</h3>
-                                        <a href="http://github.com/Jim-Leroux/WebApp" class="project-link" target="_blank" rel="noopener noreferrer">view code</a>
-                                    </div>
-                                    <p>Ce projet met en œuvre un pipeline CI/CD complet pour le déploiement d'une application web statique sur Azure Kubernetes Service (AKS), en automatisant chaque étape du cycle de vie du déploiement avec les outils DevOps modernes.</p>
-                                    <div class="project-tags">
-                                        <span class="tag">#DOCKER</span>
-                                        <span class="tag">#GITHUB ACTIONS</span>
-                                        <span class="tag">#AKS</span>
-                                        <span class="tag">#TERRAFORM</span>
-                                    </div>
-                                </div>
-                            </article>
-                            
-                            <article class="project-card card-reverse">
-                                <img src="aws.png" alt="Projet 2">
-                                <div class="project-card-content">
-                                    <div class="project-title-container">
-                                        <h3>PIPELINE AMAZON WEB SERVICES</h3>
-                                        <a href="https://github.com/Jim-Leroux/Portfolio" class="project-link" target="_blank" rel="noopener noreferrer">view code</a>
-                                    </div>
-                                    <p>Ce projet vise à automatiser le déploiement d'une application web statique en utilisant AWS Elastic Compute Cloud (EC2) pour l'hébergement, Terraform pour l'infrastructure et GitHub Actions pour le pipeline CI/CD</p>
-                                    <div class="project-tags">
-                                        <span class="tag">#DOCKER</span>
-                                        <span class="tag">#GITHUB ACTIONS</span>
-                                        <span class="tag">#ECS</span>
-                                        <span class="tag">#TERRAFORM</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </section>
-                </main>
-
-                <footer>
-                    <div class="binary-footer">
-                        <p>Mail : <a href="mailto:contact@example.com">jimleroux.contact@gmail.com</a> |  Téléphone : 06 29 68 57 98</p>
-                    </div>
-                </footer>
+            <div class="cycle-item" data-phase="code">
+                <span class="phase-text">CODE</span>
+            </div>
+            <div class="cycle-item" data-phase="build">
+                <span class="phase-text">BUILD</span>
+            </div>
+            <div class="cycle-item" data-phase="test">
+                <span class="phase-text">TEST</span>
+            </div>
+            <div class="cycle-item" data-phase="release">
+                <span class="phase-text">RELEASE</span>
+            </div>
+            <div class="cycle-item" data-phase="deploy">
+                <span class="phase-text">DEPLOY</span>
+            </div>
+            <div class="cycle-item" data-phase="operate">
+                <span class="phase-text">OPERATE</span>
+            </div>
+            <div class="cycle-item" data-phase="monitor">
+                <span class="phase-text">MONITOR</span>
             </div>
         </div>
-    </div>
 
+        <div class="phase-info">
+            <h2 id="phaseTitle">Discover the DevOps cycle</h2>
+            <p id="phaseDescription">Click on a phase of the cycle to learn more.</p>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
